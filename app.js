@@ -1,12 +1,11 @@
 const express = require("express");
 const app = express();
-const taskRoute = require("./routes/tasks-routes");
+const task = require("./routes/tasks-routes");
 
-// app.get("/api/v1/task", (req, res) => {
-//   res.send("task manager running");
-// });
+//middleware
+app.use(express.json());
 
-app.use("/api/v1/tasks", taskRoute);
+app.use("/api/v1/tasks", task);
 
 const port = 5500;
 app.listen(port, () => {
